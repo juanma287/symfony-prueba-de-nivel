@@ -42,8 +42,10 @@ docker exec -it  symfony-docker_php_1 bash
 composer install 
 ```
 
-7. Precarga de datos: php bin/console doctrine:fixtures:load
-
+7. Precarga de datos: 
+```
+php bin/console doctrine:fixtures:load
+```
 
 8. URL del proyecto: http://localhost:80/
 
