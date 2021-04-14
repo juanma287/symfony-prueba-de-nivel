@@ -16,7 +16,7 @@ class EmpresaType extends AbstractType
         $builder
             ->add('nombre',TextType::class)
             ->add('telefono')
-            ->add('email', EmailType::class)
+            ->add('email')
             ->add('sector')
         ;
     }
