@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de Sectores{% endblock %}
+
+{% block body %}
+    <h1>Listado de Sectores</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sector in sectors %}
+            <tr>
+                <td>{{ sector.id }}</td>
+                <td>{{ sector.nombre }}</td>
+                <td>
+                    <a href="{{ path('sector_show', {'id': sector.id}) }}">ver</a>
+                    <a href="{{ path('sector_edit', {'id': sector.id}) }}">editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no hay sectores creados</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sector_new') }}">Crear sector</a>
+
+      <div class="row">
+          <div class="col-md-12" style="display: inline-block;">
+              {% for type, flashMessages in app.session.flashbag.all() %}
+                     {% for flashMessage in flashMessages %}
+                         <div class="alert alert-{{ type }}" style="margin: 10px 0px 10px 0px">
+                                {{ flashMessage|raw }}
+                        </div>
+                    {% endfor %}
+                 {% endfor %}
+            </div>
+        </div>
+{% endblock %}

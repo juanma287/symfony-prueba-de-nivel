@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de Empresas{% endblock %}
+
+{% block body %}
+    <h1>Listado de empresa</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Sector</th>
+                <th>acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for empresa in empresas %}
+            <tr>
+                <td>{{ empresa.id }}</td>
+                <td>{{ empresa.nombre }}</td>
+                <td>{{ empresa.telefono }}</td>
+                <td>{{ empresa.email }}</td>
+                <td>{{ empresa.Sector.nombre }}</td>
+                <td>
+                    <a href="{{ path('empresa_show', {'id': empresa.id}) }}">ver</a>
+                    <a href="{{ path('empresa_edit', {'id': empresa.id}) }}">editar</a>
+                    <a href="{{ path('empresa_delete', {'id': empresa.id}) }}">borrar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no hay empresas creadas</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('empresa_new') }}">Crear empresa</a>
+{% endblock %}
