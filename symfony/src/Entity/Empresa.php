@@ -25,7 +25,7 @@ class Empresa
     /**
      * @Assert\NotBlank(message = "El campo Nombre no puede estar en blanco")
      * @Assert\Length(
-     *      min = 2,
+     *      min = 1,
      *      max = 100,
      *      minMessage = "El Nombre debe tener al menos {{ limit }} caracteres",
      *      maxMessage = "El Nombre no puede ser más largo que {{ limit }} caracteres"

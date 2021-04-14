@@ -1,19 +1,154 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Prueba de concepto{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {#JS Core#}
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/morris/morris.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/icons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/metisMenu.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/selectize/selectize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/selectize/selectize.bootstrap3.min.css') }}">
+
+    <style>
+        .pagination{
+            float: right;
+        }
+
+        .col-form-label {
+            text-align: left;
+        }
+
+        .blockUI, .blockMsg, .blockPage {
+            z-index: 1011;
+            position: fixed;
+            padding: 0px;
+            margin: 0px;
+            width: 30%;
+            top: 40%;
+            left: 35%;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            border: 3px solid rgb(170, 170, 170);
+            background-color: rgb(255, 255, 255);
+            cursor: wait;
+            border-radius: 5px;
+            border: 0px !important;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- Top Bar Start -->
+<div class="topbar">
+
+    <!-- Navbar -->
+    <nav class="topbar-main">
+        <!-- LOGO -->
+        <div class="topbar-left">
+    
+        </div>
+        <!--end logo-->
+
+    </nav>
+    <!-- end navbar-->
+
+   
+    <!-- MENU Start -->
+    <div class="navbar-custom-menu">
+        <div class="container-fluid">
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+                  
+                 <li class="has-submenu">
+                        <a href="{{ path('empresa_index') }}">
+                               <i class="dripicons-store"></i>Empresas</a>
+                        
+                        </a>
+                        <!--end submenu-->
+
+                 </li>
+                 <li class="has-submenu">
+                        <a href="{{ path('sector_index') }}">
+                               <i class="dripicons-suitcase"></i>Sectores</a>
+                        
+                        </a>
+                        <!--end submenu-->
+
+                 </li>
+                </ul><!-- End navigation menu -->
+            </div> <!-- end navigation -->
+        </div> <!-- end container-fluid -->
+    </div> <!-- end navbar-custom -->
+</div>
+<!-- Top Bar End -->
+
+<div class="page-wrapper">
+
+    <!-- Page Content-->
+
+    <div class="page-content">
+
         {% block body %}{% endblock %}
-    </body>
+
+        <!-- end page content -->
+
+        <footer class="footer text-center text-sm-left">
+            <div class="boxed-footer" style="text-align: center!important;">
+                footer
+            </div>
+        </footer><!--end footer-->
+
+    </div>
+    <!-- end page-wrapper -->
+</div>
+
+<div class="modal fade" id="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/waves.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/morris/morris.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/raphael/raphael.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/pages/jquery.projects_dashboard.init.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/app.js') }}"></script>
+
+     <!-- Inicio Buscador en selec de usuario-->
+    <script type="text/javascript" src="{{ asset('assets/plugins/selectize/selectize.min.js') }}"></script>
+
+
+
+{% block javascripts %}
+{% endblock %}
+</body>
+
 </html>

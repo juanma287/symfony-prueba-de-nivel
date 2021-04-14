@@ -91,7 +91,7 @@ class SectorController extends AbstractController
                  $entityManager->flush();
             } catch (ForeignKeyConstraintViolationException $e) {
                 $this->addFlash('danger',
-                    'El sector no puede ser eliminado por que tiene espresas asociadas.'
+                    Sector::ERROR_REGISTRO_ASOCIADO
                 );
 
             }

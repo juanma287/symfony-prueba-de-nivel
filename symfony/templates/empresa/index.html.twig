@@ -3,40 +3,112 @@
 {% block title %}Listado de Empresas{% endblock %}
 
 {% block body %}
-    <h1>Listado de empresa</h1>
+    <div class="container-fluid">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Telefono</th>
-                <th>Email</th>
-                <th>Sector</th>
-                <th>acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for empresa in empresas %}
-            <tr>
-                <td>{{ empresa.id }}</td>
-                <td>{{ empresa.nombre }}</td>
-                <td>{{ empresa.telefono }}</td>
-                <td>{{ empresa.email }}</td>
-                <td>{{ empresa.Sector.nombre }}</td>
-                <td>
-                    <a href="{{ path('empresa_show', {'id': empresa.id}) }}">ver</a>
-                    <a href="{{ path('empresa_edit', {'id': empresa.id}) }}">editar</a>
-                    <a href="{{ path('empresa_delete', {'id': empresa.id}) }}">borrar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no hay empresas creadas</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="float-right">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Empresas</a></li>
+                            <li class="breadcrumb-item"><a href="#">Listado de Empresas</a></li>
+                        </ol><!--end breadcrumb-->
+                    </div><!--end /div-->
+                    <h4 class="page-title">Listado de Empresas</h4>
+                </div><!--end page-title-box-->
+            </div><!--end col-->
+        </div><!--end row-->
+        <!-- end page title end breadcrumb -->
 
-    <a href="{{ path('empresa_new') }}">Crear empresa</a>
+
+        <div class="row">
+            <div class="col-lg-12">
+               <div class="card">
+                 <div class="row">
+                  <div class="table-responsive col-md-12">
+                   <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Telefono</th>
+                                <th>Email</th>
+                                <th>Sector</th>
+                                <th>acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for empresa in empresas %}
+                            <tr>
+                                <td>{{ empresa.id }}</td>
+                                <td>{{ empresa.nombre }}</td>
+                                <td>{{ empresa.telefono }}</td>
+                                <td>{{ empresa.email }}</td>
+                                <td>{{ empresa.Sector.nombre }}</td>
+                                <td class="actions">
+                                    <a 
+                                    title='Mostrar'
+                                    href="{{ path('empresa_show', {'id': empresa.id}) }}" 
+                                    class="mr-2">
+                                    <i class="fas fa-eye text-info font-16"></i>
+                                    </a>
+                                    <a 
+                                    title='Editar'
+                                    href="{{ path('empresa_edit', {'id': empresa.id}) }}" 
+                                    class="mr-2">
+                                    <i class="fas fa-edit text-info font-16"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="3">no hay empresas creados</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+
+
+               <hr class="my-4">
+
+                        <div id="page-content">
+                            <div class="content-box">
+
+                                <div class="content-box-wrapper">
+
+
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        <a class="btn btn-outline-success waves-effect waves-light" href="{{ path('empresa_new') }}">
+                                            <i class="glyph-icon icon-list" aria-hidden="true"></i>
+                                            Crear Emrpresa
+                                        </a>
+                                      
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+   
+
+                    <div class="row">
+                        <div class="col-md-12" style="display: inline-block;">
+                            {% for type, flashMessages in app.session.flashbag.all() %}
+                                    {% for flashMessage in flashMessages %}
+                                        <div class="alert alert-{{ type }}" style="margin: 10px 0px 10px 0px">
+                                                {{ flashMessage|raw }}
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                </div>
+            </div>
+          </div>
+        </div>
+ </div>
 {% endblock %}

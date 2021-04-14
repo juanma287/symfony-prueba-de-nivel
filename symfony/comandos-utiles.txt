@@ -10,9 +10,11 @@ Obs: cuado cambiamos un campo desde el codigo, tenemos que correr este comando p
 
 
 CRUD
+Crear el: php bin/console make:controller
+Comprobar las rutas creadas en el proyecto: php bin/console debug:router
 
 Crear el sistema CRUD automáticamente para la entidad: php bin/console make:crud
-Comprobar las rutas creadas en el proyecto: php bin/console debug:router
+
 
 
 CACHE

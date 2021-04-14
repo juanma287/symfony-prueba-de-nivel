@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Sector
 {
+    const ERROR_REGISTRO_ASOCIADO = 'Error: El sector no puede ser eliminado por que tiene empresas asociadas.';
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -25,7 +26,7 @@ class Sector
     /**
      * @Assert\NotBlank(message = "El Nombre no puede estar en blanco")
      * @Assert\Length(
-     *      min = 2,
+     *      min = 1,
      *      max = 100,
      *      minMessage = "El Nombre debe tener al menos {{ limit }} caracteres",
      *      maxMessage = "El Nombre no puede ser más largo que {{ limit }} caracteres"
