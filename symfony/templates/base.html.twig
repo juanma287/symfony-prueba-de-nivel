@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/selectize/selectize.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/selectize/selectize.bootstrap3.min.css') }}">
+    
+
 
     <style>
         .pagination{
@@ -144,7 +146,12 @@
 
      <!-- Inicio Buscador en selec de usuario-->
     <script type="text/javascript" src="{{ asset('assets/plugins/selectize/selectize.min.js') }}"></script>
-
+       
+    <!-- La clase form-control no la estan tomando los input y secelt, la debo agregar de esta manera -->
+    <script type="text/javascript">
+             $('input').addClass('form-control');
+             $('select').addClass('form-control');
+    </script>   
 
 
 {% block javascripts %}
