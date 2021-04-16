@@ -16,6 +16,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Sector
 {
     const ERROR_REGISTRO_ASOCIADO = 'Error: El sector no puede ser eliminado por que tiene empresas asociadas.';
+    const EXITO_ELININACION = 'Sector eliminado correctamente.';
+    const ERROR_ELININACION = 'Error: Problema al eliminar el sector.';
+    const EXITO_CREACION = 'Sector creado correctamente.';
+    const ERROR_CREACION = 'Error: Problema al eliminar el sector.';
+    const EXITO_EDICION = 'Sector editado correctamente.';
+    const ERROR_EDICION = 'Error: Problema al editar el sector.';
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

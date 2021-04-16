@@ -35,10 +35,14 @@ class EmpresaController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($empresa);
-            $entityManager->flush();
-
+            try {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($empresa);
+                $entityManager->flush();
+                $this->addFlash('success', Empresa::EXITO_CREACION);
+            }catch (\Exception $e) {
+                $this->addFlash('danger', Empresa::ERROR_CREACION);
+                }
             return $this->redirectToRoute('empresa_index');
         }
 
@@ -67,8 +71,12 @@ class EmpresaController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
+            try {
+                $this->getDoctrine()->getManager()->flush();
+                $this->addFlash('success', Empresa::EXITO_EDICION);
+            }catch (\Exception $e) {
+                $this->addFlash('danger', Empresa::ERROR_EDICION);
+            }
             return $this->redirectToRoute('empresa_index');
         }
 
@@ -87,7 +95,11 @@ class EmpresaController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($empresa);
             $entityManager->flush();
+            $this->addFlash('success', Empresa::EXITO_ELININACION );
+        } else {
+            $this->addFlash('danger', Empresa::ERROR_ELININACION);
         }
+
 
         return $this->redirectToRoute('empresa_index');
     }

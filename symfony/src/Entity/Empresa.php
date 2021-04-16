@@ -15,6 +15,12 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class Empresa
 {
+    const EXITO_ELININACION = 'Empresa eliminada correctamente.';
+    const ERROR_ELININACION = 'Error: Problema al eliminar la empresa.';
+    const EXITO_CREACION = 'Empresa creada correctamente.';
+    const ERROR_CREACION = 'Error: Problema al crear la empresa.';
+    const EXITO_EDICION = 'Empresa editada correctamente.';
+    const ERROR_EDICION = 'Error: Problema al editar la empresa.';
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

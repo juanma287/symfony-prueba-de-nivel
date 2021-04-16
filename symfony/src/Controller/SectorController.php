@@ -36,10 +36,14 @@ class SectorController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($sector);
-            $entityManager->flush();
-
+            try {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($sector);
+                $entityManager->flush();
+                $this->addFlash('success', Sector::EXITO_CREACION);
+            }catch (\Exception $e) {
+                $this->addFlash('danger', Sector::ERROR_CREACION);
+            }
             return $this->redirectToRoute('sector_index');
         }
 
@@ -68,8 +72,12 @@ class SectorController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
+            try {
+                $this->getDoctrine()->getManager()->flush();
+                $this->addFlash('success', Sector::EXITO_EDICION);
+            }catch (\Exception $e) {
+                $this->addFlash('danger', Sector::ERROR_EDICION);
+            }
             return $this->redirectToRoute('sector_index');
         }
 
@@ -88,12 +96,12 @@ class SectorController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             try {
                 $entityManager->remove($sector);
-                 $entityManager->flush();
-            } catch (ForeignKeyConstraintViolationException $e) {
-                $this->addFlash('danger',
-                    Sector::ERROR_REGISTRO_ASOCIADO
-                );
-
+                $entityManager->flush();
+                $this->addFlash('success', Sector::EXITO_ELININACION);
+            }catch (ForeignKeyConstraintViolationException $e) {
+                $this->addFlash('danger',   Sector::ERROR_REGISTRO_ASOCIADO );
+            }catch (\Exception $e) {
+                $this->addFlash('danger', Sector::ERROR_ELININACION);
             }
         }
 

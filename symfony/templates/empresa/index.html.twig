@@ -36,7 +36,7 @@
                                 <th>Telefono</th>
                                 <th>Email</th>
                                 <th>Sector</th>
-                                <th>acciones</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,19 +48,21 @@
                                 <td>{{ empresa.email }}</td>
                                 <td>{{ empresa.Sector.nombre }}</td>
                                 <td class="actions">
+                                  <div class="row">
                                     <a 
                                     title='Mostrar'
                                     href="{{ path('empresa_show', {'id': empresa.id}) }}" 
                                     class="mr-2">
-                                    <i class="fas fa-eye text-info font-16"></i>
+                                    <i class="fas fa-eye text-info font-16" style="padding-top: 3px;"></i>
                                     </a>
                                     <a 
                                     title='Editar'
                                     href="{{ path('empresa_edit', {'id': empresa.id}) }}" 
                                     class="mr-2">
-                                    <i class="fas fa-edit text-info font-16"></i>
+                                    <i class="fas fa-edit text-info font-16" style="padding-top: 3px;"></i>
                                     </a>
-
+                                    {{ include('empresa/_delete_form.html.twig') }}
+                                   </div>
                                 </td>
                             </tr>
                         {% else %}
