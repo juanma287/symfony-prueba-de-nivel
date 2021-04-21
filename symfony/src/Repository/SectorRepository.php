@@ -19,6 +19,21 @@ class SectorRepository extends ServiceEntityRepository
         parent::__construct($registry, Sector::class);
     }
 
+
+    /**
+     * @return query Se retorna una query para buscar sectores
+     * Obs:  Utilizo DQL ya que es la forma com mayor performance para traer la infomacion
+     * */
+    public function queryAllSectores()
+    {
+        $em = $this->getEntityManager();
+        $dql = 'SELECT s FROM App:Sector s';
+        $query = $em->createQuery($dql);
+
+        return $query;
+    }
+
+
     // /**
     //  * @return Sector[] Returns an array of Sector objects
     //  */

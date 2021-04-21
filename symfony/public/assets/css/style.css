@@ -134,7 +134,11 @@ a:hover, a:active, a:focus {
 }
 
 
-
+.delete-button {
+  padding: 0px; 
+  border-bottom-width: 1px; 
+  border-top-width: 0px;
+}
 
 /* Page titles */
 .title-text,

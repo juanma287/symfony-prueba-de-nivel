@@ -9,6 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractController
 {
     /**
+     * @author Juan Manuel Lazzarini <juan.manuel.lazzarini@gmail.com>
+     * 
      * @Route("/", name="dashboard")
      */
     public function index(): Response

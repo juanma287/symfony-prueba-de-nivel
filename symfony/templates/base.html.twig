@@ -1,3 +1,7 @@
+{#
+   Esta es la plantilla base utilizada como diseño de la aplicación que contiene
+   elementos comunes y decora todas las demás plantillas.
+#}
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +11,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {#JS Core#}
+    {#CSS Core#}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/morris/morris.css') }}">
@@ -132,6 +136,8 @@
     </div>
 </div>
 
+    {#JS Core#}
+
     <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
@@ -142,17 +148,7 @@
     <script type="text/javascript" src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/pages/jquery.projects_dashboard.init.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/app.js') }}"></script>
-
-     <!-- Inicio Buscador en selec de usuario-->
-    <script type="text/javascript" src="{{ asset('assets/plugins/selectize/selectize.min.js') }}"></script>
-       
-    <!-- La clase form-control no la estan tomando los input y secelt, la debo agregar de esta manera -->
-    <script type="text/javascript">
-             $('input').addClass('form-control');
-             $('select').addClass('form-control');
-    </script>   
-
+    <script type="text/javascript" src="{{ asset('assets/js/app.js') }}"></script>  
 
 {% block javascripts %}
 {% endblock %}

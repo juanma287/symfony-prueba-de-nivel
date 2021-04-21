@@ -1,24 +1,22 @@
 MODELO
-
 Crear la base de datos: php bin/console doctrine:database:create
-
 Crear entidad: php bin/console make:entity
-
 Crear las tablas en la base y  actualizar (con force): php bin/console doctrine:schema:update --force
 Obs: cuado cambiamos un campo desde el codigo, tenemos que correr este comando para actualizar la base 
-
 
 
 CRUD
 Crear el: php bin/console make:controller
 Comprobar las rutas creadas en el proyecto: php bin/console debug:router
-
 Crear el sistema CRUD automáticamente para la entidad: php bin/console make:crud
 
 
-
 CACHE
-
 Limpiar la caché del entorno de desarrollo: php bin/console cache:clear
 Limpiar la caché del entorno de producción: php bin/console cache:clear --env=prod
+
+
+
+INFO BASICA E IMPORTANTE AL INICIAR UN PROYECTO EN SYMFONY 5
+https://www.ticarte.com/contenido/symfony-5-tutorial-para-desarrollar-tu-primera-aplicacion-web
 

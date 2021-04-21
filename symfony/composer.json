@@ -5,6 +5,8 @@
         "php": "^7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "lexik/form-filter-bundle": "^6.1",
+        "pagerfanta/pagerfanta": "^3.0",
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/asset": "5.2.*",
         "symfony/console": "5.2.*",

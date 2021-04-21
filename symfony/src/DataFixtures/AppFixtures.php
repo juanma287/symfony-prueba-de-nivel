@@ -22,13 +22,14 @@ class AppFixtures extends Fixture
       
         $manager->flush();
 
-        $emmpresa = new Empresa();
-        $emmpresa->setNombre('JP Morgan');
-        $emmpresa->setEmail('juanma@gmail.com');
-        $emmpresa->setTelefono('3498 479936');
-        $emmpresa->setSector($sector);
-        $manager->persist($emmpresa);
-      
+        for ($i=0; $i < 12 ; $i++) { 
+            $emmpresa = new Empresa();
+            $emmpresa->setNombre('JP Morgan '.$i);
+            $emmpresa->setEmail('juanma@gmail.com');
+            $emmpresa->setTelefono('3498 479936');
+            $emmpresa->setSector($sector);
+            $manager->persist($emmpresa);
+        }
         $manager->flush();
 
 
